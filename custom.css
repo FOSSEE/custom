@@ -1,0 +1,38 @@
+/*
+Placeholder for custom user CSS
+
+mainly to be overridden in profile/static/custom/custom.css
+
+This will always be an empty file in IPython
+*/
+.input_area {
+    width: 90%;
+}
+.code_cell {
+    position: relative;
+}
+.question {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    display: inline;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    background: #333333;
+    color: #ffffff;
+    border: 1px solid #333333;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+         -o-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-transition: all .5s ease-out;
+       -moz-transition: all .5s ease-out;
+         -o-transition: all .5s ease-out;
+            transition: all .5s ease-out;
+}
+.question:hover {
+    text-decoration: none;
+    background: #ffffff;
+    color: #333333;
+}
