@@ -76,7 +76,12 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
 
     /* fetching chapter number */
     var $first_text_cell = $(".text_cell:first");
-    var chapter_name = $first_text_cell.find("h1").attr("id");
+    /* chapter name string either in id or innerHTML */
+    var chapter_name = "";
+    chapter_name = $first_text_cell.find("h1").attr("id");
+    if(!chapter_name) {
+        chapter_name = $first_text_cell.find("h1").html();
+    }
     var numbers = chapter_name.match(regex).map(function(v) { return parseFloat(v); });
     var chapter_number = Math.abs(numbers[0]);
     console.log("Chapter:" + chapter_number);
@@ -84,7 +89,13 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
     $code_cell.each(function(index, element) {
         /* fetching example and page number */
         var $current_text_cell = $(this).prev();
-        var $heading = $current_text_cell.find("h2");
+        /* code headings can be h2 or h3 */
+        var $heading;
+        $heading = $current_text_cell.find("h2");
+        if(!$heading.html())  {
+            $heading = $current_text_cell.find("h3").first();
+            console.log("################ Head" + $heading.html());
+        }
         var heading_text = $heading.html();
         var numbers = heading_text.match(regex).map(function(v) { return parseFloat(v); });
         var example_no = Math.abs(numbers[0]);
