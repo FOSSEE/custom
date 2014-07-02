@@ -104,14 +104,36 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
         
         /* creating the link */
         var $link = $("<a>?</a>");
-        href = "http://example.com/?book={0}&chapter={1}&example={2}&page={3}";
-        href = href.format(book, chapter_number, example_no, page_no);
         $link.attr({
-            href: href,
-            target: "_blank",
-            class: "question"
+            href: "#",
+            class: "question",
+            "data-book": book,
+            "data-chapter": chapter_number,
+            "data-example": example_no,
+            "data-page": page_no,
         });
+        $link.html("<img src='https://cdn4.iconfinder.com/data/icons/iconsimple-freebies/128/talk_bubbles_1.png'>");
         $(this).prepend($link);
         count++;
+    });
+
+    /* appending modal skeleton */
+    var $comment_modal = $("<div id='commentModal' class='modal hide fade' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'> <div class='modal-header'> <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button> <h3 id='myModalLabel'>Python TBC Comments</h3> </div> <div class='modal-body'> <p>One fine body…</p> </div></div>");
+    $("#site").append($comment_modal);
+
+    $(".question").on("click", function() {
+        $comment_frame = $("<iframe></iframe>");
+        var book = $(this).data("book");
+        var chapter = $(this).data("chapter");
+        var example = $(this).data("example");
+        var page = $(this).data("page");
+        var src = "http://localhost:8000/comments/get/?book={0}&chapter={1}&example={2}&page={3}";
+        src = src.format(book, chapter, example, page);
+        $comment_frame.attr({
+            class: "comment-frame",
+            src: src,
+        });
+        $comment_modal.find(".modal-body").html($comment_frame);
+        $comment_modal.modal("show");
     });
 });
