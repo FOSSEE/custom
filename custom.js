@@ -136,4 +136,14 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
         $comment_modal.find(".modal-body").html($comment_frame);
         $comment_modal.modal("show");
     });
+
+});
+
+/* hiding running/clusters links */
+$("#tabs a").each(function(index, element) {
+    var href = $(this).attr("href");
+    console.log($(this).attr("href"));
+    if(href == "#running" || href == "#clusters") {
+        $(this).hide();
+    }
 });

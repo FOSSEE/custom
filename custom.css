@@ -35,3 +35,7 @@ This will always be an empty file in IPython
     height: 250px;
     border: none;
 }
+/* hiding running/custom tabs */
+#running, #clusters {
+    display: none;
+}
