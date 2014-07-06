@@ -147,3 +147,6 @@ $("#tabs a").each(function(index, element) {
         $(this).hide();
     }
 });
+
+var $branding = $("<a href='http://fossee.in' class='pull-right' target='_blank'><img src='http://fossee.in/sites/all/themes/fossee/logo.png' width='100px'></a>");
+$("#ipython_notebook").after($branding);

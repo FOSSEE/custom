@@ -39,3 +39,8 @@ This will always be an empty file in IPython
 #running, #clusters {
     display: none;
 }
+/* padding for the branding div */
+.navbar .container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
