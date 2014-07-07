@@ -37,33 +37,37 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
     console.log("Chapter:" + chapter_number);
 
     $code_cell.each(function(index, element) {
-        /* fetching example and page number */
-        var $current_text_cell = $(this).prev();
-        /* code headings can be h2 or h3 */
-        var $heading;
-        $heading = $current_text_cell.find("h2");
-        if(!$heading.html())  {
-            $heading = $current_text_cell.find("h3").first();
-            console.log("################ Head" + $heading.html());
+        try {
+            /* fetching example and page number */
+            var $current_text_cell = $(this).prev();
+            /* code headings can be h2 or h3 */
+            var $heading;
+            $heading = $current_text_cell.find("h2");
+            if(!$heading.html())  {
+                $heading = $current_text_cell.find("h3").first();
+                console.log("########## Head" + $heading.html());
+            }
+            var heading_text = $heading.html();
+            var numbers = heading_text.match(regex).map(function(v) { return parseFloat(v); });
+            var example_no = Math.abs(numbers[0]);
+            var page_no = Math.abs(numbers[1]);
+            console.log("########## Exp:" + example_no + ", Pg:" + page_no);
+            
+            /* creating the link */
+            var $link = $("<a></a>");
+            $link.attr({
+                href: "#",
+                class: "question",
+                "data-book": book,
+                "data-chapter": chapter_number,
+                "data-example": example_no,
+                "data-page": page_no,
+            });
+            $(this).prepend($link);
+            count++;
+        } catch(e) {
+            return;
         }
-        var heading_text = $heading.html();
-        var numbers = heading_text.match(regex).map(function(v) { return parseFloat(v); });
-        var example_no = Math.abs(numbers[0]);
-        var page_no = Math.abs(numbers[1]);
-        console.log("Exp:" + example_no + ", Pg:" + page_no);
-        
-        /* creating the link */
-        var $link = $("<a></a>");
-        $link.attr({
-            href: "#",
-            class: "question",
-            "data-book": book,
-            "data-chapter": chapter_number,
-            "data-example": example_no,
-            "data-page": page_no,
-        });
-        $(this).prepend($link);
-        count++;
     });
 
     /* appending modal skeleton */
