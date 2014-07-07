@@ -53,7 +53,7 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
         console.log("Exp:" + example_no + ", Pg:" + page_no);
         
         /* creating the link */
-        var $link = $("<a>?</a>");
+        var $link = $("<a></a>");
         $link.attr({
             href: "#",
             class: "question",
@@ -62,7 +62,6 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
             "data-example": example_no,
             "data-page": page_no,
         });
-        $link.html("<img src='https://cdn4.iconfinder.com/data/icons/iconsimple-freebies/128/talk_bubbles_1.png'>");
         $(this).prepend($link);
         count++;
     });
@@ -98,5 +97,5 @@ $("#tabs a").each(function(index, element) {
     }
 });
 
-var $branding = $("<a href='http://fossee.in' class='pull-right' target='_blank'><img src='http://fossee.in/sites/all/themes/fossee/logo.png' width='100px'></a>");
+var $branding = $("<a href='http://fossee.in' class='branding pull-right' target='_blank'></a>");
 $("#ipython_notebook").after($branding);
