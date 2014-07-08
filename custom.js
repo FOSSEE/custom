@@ -25,7 +25,7 @@ $(document).ready(function() {
     console.log("Book:" + book);
 
     /* fetching chapter number */
-    var $first_text_cell = $(".text_cell:first");
+    var $first_text_cell = $(".text_cell_render:first");
     /* chapter name string either in id or innerHTML */
     var chapter_name = "";
     chapter_name = $first_text_cell.find("h1").attr("id");
