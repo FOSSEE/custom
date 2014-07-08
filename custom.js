@@ -61,6 +61,8 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
                 href: href,
                 class: "question",
                 target: "_blank",
+                "data-toggle": "tooltip",
+                title: "create/view comments for this example"
             });
             $(this).prepend($link);
             count++;
@@ -68,6 +70,8 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
             return;
         }
     });
+    /* initializing tooltip */
+    $(".question").tooltip();
 });
 
 /* hiding running/clusters links */
