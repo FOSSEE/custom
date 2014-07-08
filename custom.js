@@ -1,4 +1,4 @@
-$([IPython.events]).on('notebook_loaded.Notebook', function(){
+$(document).ready(function() {
     /* first, checks if it isn't implemented yet */
     if (!String.prototype.format) {
       String.prototype.format = function() {
@@ -69,7 +69,6 @@ $([IPython.events]).on('notebook_loaded.Notebook', function(){
         }
     });
 });
-
 /* hiding running/clusters links */
 $("#tabs a").each(function(index, element) {
     var href = $(this).attr("href");

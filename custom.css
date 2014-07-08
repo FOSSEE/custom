@@ -10,6 +10,7 @@ This will always be an empty file in IPython
 }
 .code_cell {
     position: relative;
+    width: 90%;
 }
 .question {
     position: absolute;
