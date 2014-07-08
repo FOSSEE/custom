@@ -5,16 +5,13 @@ mainly to be overridden in profile/static/custom/custom.css
 
 This will always be an empty file in IPython
 */
-.input_area {
-    width: 90%;
-}
 .code_cell {
     position: relative;
 }
 .question {
     position: absolute;
-    top: 5%;
-    right: 4%;
+    top: 25px;
+    right: 30px;
     display: inline;
     width: 30px;
     height: 30px;
@@ -23,6 +20,7 @@ This will always be an empty file in IPython
     text-align: center;
     text-decoration: none;
     color: #ffffff;
+    z-index: 1007;
     -webkit-transition: all .5s ease-out;
        -moz-transition: all .5s ease-out;
          -o-transition: all .5s ease-out;
