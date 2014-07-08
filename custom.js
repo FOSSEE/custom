@@ -68,15 +68,7 @@ $(document).ready(function() {
             return;
         }
     });
+    
+    var $branding = $("<a href='http://fossee.in' class='branding' target='_blank'></a>");
+    $("body").prepend($branding);
 });
-/* hiding running/clusters links */
-$("#tabs a").each(function(index, element) {
-    var href = $(this).attr("href");
-    console.log($(this).attr("href"));
-    if(href == "#running" || href == "#clusters") {
-        $(this).hide();
-    }
-});
-
-var $branding = $("<a href='http://fossee.in' class='branding pull-right' target='_blank'></a>");
-$("#ipython_notebook").after($branding);
