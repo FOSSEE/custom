@@ -56,3 +56,8 @@ This will always be an empty file in IPython
          -o-box-shadow: 1px 1px 15px #cccccc;
             box-shadow: 1px 1px 15px #cccccc;
 }
+#edit-btn {
+    position: relative;
+    top: 3px;
+    text-decoration: none;
+}

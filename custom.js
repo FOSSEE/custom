@@ -36,6 +36,7 @@ $(document).ready(function() {
     var chapter_number = Math.abs(numbers[0]);
     console.log("Chapter:" + chapter_number);
 
+    document.title = chapter_name + " - " + book;
     $code_cell.each(function(index, element) {
         try {
             /* fetching example and page number */
@@ -71,4 +72,10 @@ $(document).ready(function() {
     
     var $branding = $("<a href='http://fossee.in' class='branding' target='_blank'></a>");
     $("body").prepend($branding);
+    var $edit_btn = $("<a id='edit-btn' target='_blank'>Edit examples of this chapter</a>");
+    $edit_btn.attr({
+        href: 'https://ipynb.fossee.in/notebooks' + strings[0],
+        class: 'btn btn-primary'
+    });
+    $first_text_cell.append($edit_btn);
 });
