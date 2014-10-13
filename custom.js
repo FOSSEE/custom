@@ -4,10 +4,7 @@ $(document).ready(function() {
       String.prototype.format = function() {
         var args = arguments;
         return this.replace(/{(\d+)}/g, function(match, number) { 
-          return typeof args[number] != 'undefined'
-            ? args[number]
-            : match
-          ;
+          return typeof args[number] != 'undefined' ? args[number] : match ;
         });
       };
     }
@@ -56,12 +53,11 @@ $(document).ready(function() {
             
             /* creating the link */
             var $link = $("<a></a>");
-            var href = "http://tbc-python.fossee.in/comments/get/?book={0}&chapter={1}&example={2}&page={3}";
+            var href = "#disqus_thread";
             href = href.format(book, chapter_number, example_no, page_no);
             $link.attr({
                 href: href,
                 class: "question",
-                target: "_blank",
             });
             $(this).prepend($link);
             count++;
