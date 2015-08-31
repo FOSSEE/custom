@@ -53,7 +53,7 @@ $(document).ready(function() {
             
             /* creating the link */
             var $link = $("<a></a>");
-            var href = "localhost:8000/comments/get/?book={0}&chapter={1}&example={2}&page={3}";
+            var href = "http://tbc-python.fossee.in/comments/get/?book={0}&chapter={1}&example={2}&page={3}";
             //var href = "#disqus_thread";
             href = href.format(book, chapter_number, example_no, page_no);
             $link.attr({
