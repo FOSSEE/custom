@@ -31,6 +31,17 @@ $(document).ready(function() {
     }
     var numbers = chapter_name.match(regex).map(function(v) { return parseFloat(v); });
     var chapter_number = Math.abs(numbers[0]);
+
+function randomString(len, charSet) {
+    charSet = charSet || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var randomString = '';
+    for (var i = 0; i < len; i++) {
+    	var randomPoz = Math.floor(Math.random() * charSet.length);
+    	randomString += charSet.substring(randomPoz,randomPoz+1);
+    }
+    return randomString;
+}
+    var ran_tex = randomString(12);
     console.log("Chapter:" + chapter_number);
 
     document.title = chapter_name + " - " + book;
@@ -71,7 +82,7 @@ $(document).ready(function() {
     $("body").prepend($branding);
     var $edit_btn = $("<a id='edit-btn' target='_blank'>Edit examples of this chapter</a>");
     $edit_btn.attr({
-        href: 'https://ipynb.fossee.in/notebooks' + strings[0],
+        href: 'https://try.fossee.in/user/' + ran_tex + '/notebooks' + strings[0],
         class: 'btn btn-primary'
     });
     $first_text_cell.append($edit_btn);
