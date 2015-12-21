@@ -82,7 +82,7 @@ function randomString(len, charSet) {
     $("body").prepend($branding);
     var $edit_btn = $("<a id='edit-btn' target='_blank'>Edit examples of this chapter</a>");
     $edit_btn.attr({
-        href: 'https://try.fossee.in/user/' + ran_tex + '/notebooks' + strings[0],
+        href: 'https://try.fossee.in/user/' + ran_tex + '/notebooks/Python-Textbook-Companions' + strings[0],
         class: 'btn btn-primary'
     });
     $first_text_cell.append($edit_btn);
